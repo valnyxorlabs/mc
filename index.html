@@ -1,62 +1,199 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta property="og:title" content="Vortex Network" />
-  <meta property="og:description" content="Venha jogar no servidor!" />
-  <meta property="og:image" content="https://mc-vortexnetwork.github.io/mc/images/banner.jpg" />
-  <meta property="og:url" content="https://mc-vortexnetwork.github.io/mc/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vortex Network</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #3a0ca3, #7209b7);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+    <meta property="og:title" content="Vortex Network" />
+    <meta property="og:description" content="Venha jogar no servidor!" />
+    <meta property="og:image" content="https://mc-vortexnetwork.github.io/mc/images/banner.jpg" />
+    <meta property="og:url" content="https://mc-vortexnetwork.github.io/mc/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Network - Servidor Minecraft</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px #00000060;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a0dad, #dda0dd, #4b0082);
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      color: #e0e0e0;
-    }
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
 
-    .btn {
-      background: #f72585;
-      color: white;
-      padding: 16px 40px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: bold;
-      text-decoration: none;
-    }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #6a0dad;
+        }
 
-    .btn:hover {
-      background: #d61a73;
-    }
-  </style>
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #dda0dd;
+        }
+
+        /* Seção Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://via.placeholder.com/1920x1080/6a0dad/ffffff?text=Minecraft+Vortex') no-repeat center/cover;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #4b0082;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #6a0dad, #dda0dd);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Seções */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: 250px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #dda0dd;
+        }
+
+        /* Rodapé */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .features { flex-direction: column; }
+            header { flex-direction: column; padding: 20px; }
+        }
+    </style>
 </head>
 <body>
-  <h1>Vortex Network</h1>
-<p>Servidor Minecraft épico com minigames, economia e diversão garantida!</p>
-  <a href="minecraft:?addExternalServer=VortexNetwork|mc-vortexnetwork.aternos.me:14899" target="_blank" rel="noopener noreferrer" class="btn">Jogar Agora</a>
+    <header>
+        <div class="logo">Vortex Network</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Bem-vindo ao Vortex Network</h1>
+        <p>Entre no vórtice de aventuras épicas no Minecraft! Modos de jogo únicos, comunidade ativa e mundos infinitos aguardam por você.</p>
+        <a href="minecraft:?addExternalServer=VortexNetwork|mc-vortexnetwork.aternos.me:14899" target="_blank" rel="noopener noreferrer" class="btn">Jogar Agora</a>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Por que escolher Vortex Network?</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Modos Diversos</h3>
+                <p>Survival, PvP, Mini-Games e muito mais para todos os gostos.</p>
+            </div>
+            <div class="feature">
+                <h3>Comunidade Ativa</h3>
+                <p>Junte-se a milhares de jogadores em eventos e torneios.</p>
+            </div>
+            <div class="feature">
+                <h3>Atualizações Constantes</h3>
+                <p>Sempre novos conteúdos e melhorias para manter a diversão.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2023 Vortex Network. Todos os direitos reservados. | Contato: suporte@vortexnetwork.com</p>
+    </footer>
 </body>
 </html>
